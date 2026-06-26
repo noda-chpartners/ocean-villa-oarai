@@ -57,7 +57,7 @@ export default function RoomsSection() {
           <h2 className="font-heading font-bold text-2xl md:text-4xl text-foreground-950 mb-3">
             お部屋
           </h2>
-          <p className="text-lg text-foreground-500 font-body mb-6">
+          <p className="text-sm text-foreground-500 font-body mb-6">
             家族や友人と気兼ねなく過ごせる広々空間<br />特別な時間をお過ごしください。
           </p>
         </div>

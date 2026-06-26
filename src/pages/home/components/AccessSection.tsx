@@ -75,7 +75,7 @@ export default function AccessSection() {
 
         {/* --- 周辺観光 セクション --- */}
         <ScrollReveal delay={400}>
-          <h2 className="font-heading font-bold text-2xl md:text-3xl text-foreground-950 text-center mb-10">
+          <h2 className="font-heading font-bold text-xl md:text-2xl text-foreground-950 text-center mb-10">
             周辺観光
           </h2>
         </ScrollReveal>

@@ -14,7 +14,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-foreground-700 text-background-50">
+    <footer className="bg-primary-600 text-background-50">
       {/* Upper section */}
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-14 md:py-18 flex flex-col items-center text-center">
 

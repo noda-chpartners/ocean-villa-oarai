@@ -10,13 +10,6 @@ export default function HeroSection() {
 
   return (
     <section className="relative h-[100dvh] w-full overflow-hidden">
-      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" className="w-full h-[40px]">
-       <path
-          fill="oklch(var(--background-50))"
-          d="M0,0 H1440 V30 
-       Q1350,60 1260,30 T1080,30 T900,30 T720,30 T540,30 T360,30 T180,30 T0,30 Z"
-        />
-      </svg>
       <img
         src={hero}
         alt="大洗の海岸線の景色"

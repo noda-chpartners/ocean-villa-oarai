@@ -14,8 +14,8 @@ export default function ReservationSection() {
         <ScrollReveal className="text-left bg-background-100 border border-background-200/70 rounded-lg p-6 md:p-8 mb-8">
 
           <p className="font-body text-base md:text-lg text-foreground-700 leading-relaxed text-center mb-8">
-            Booking.com、Airbnbにてご予約いただけます。<br />
-            ご不明な点がございましたら、お気軽にお問い合わせください。
+            Booking.com、Airbnbにて<br className="md:hidden"/>ご予約いただけます。<br />
+            ご不明な点がございましたら<br className="md:hidden"/>お気軽にお問い合わせください。
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 mb-10">
@@ -23,7 +23,7 @@ export default function ReservationSection() {
               href="https://www.booking.com/Share-hRPX64"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 inline-flex items-center justify-center gap-2 bg-background-50 hover:bg-background-200 text-foreground-950 font-bold text-sm px-6 py-3.5 rounded-full border border-background-300/60 transition-all duration-200 cursor-pointer whitespace-nowrap"
+              className="flex-1 inline-flex items-center justify-center gap-2 bg-foreground-950 hover:bg-foreground-800 text-background-50 font-bold text-sm px-6 py-3.5 rounded-full border border-background-300/60 transition-all duration-200 cursor-pointer whitespace-nowrap"
             >
               <i className="ri-arrow-left-line"></i>
               Booking.com

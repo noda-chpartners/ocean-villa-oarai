@@ -8,6 +8,8 @@ import table from '@/assets/table.jpg';
 import glasses from '@/assets/glasses.jpg';
 import wash from '@/assets/wash.jpg';
 import wc from '@/assets/wc.jpg';
+import ha2 from '@/assets/ha2.png';
+import ha22 from '@/assets/2ha.png';
 
 const amenities = [
   {
@@ -48,7 +50,6 @@ const amenities = [
   },
 ];
 
-// ループスライダー用の画像配列
 const galleryImages = [
   { id: 'bath', image: bath, alt: 'バスルーム' },
   { id: 'kitchen', image: kitchen, alt: 'キッチン' },
@@ -61,28 +62,41 @@ const galleryImages = [
 
 export default function FacilitiesSection() {
   return (
-    <section id="facilities" className="py-20 md:py-28 bg-background-50 overflow-hidden">
+    <section id="facilities" className="py-20 md:py-28 bg-background-300 overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-4 md:px-6">
         
-        {/* --- 見出しエリア --- */}
+      
         <ScrollReveal className="flex flex-col md:flex-row md:items-end md:justify-center gap-4">
           <div className="text-center mb-10 md:mb-14">
-            <h2 className="font-heading font-bold text-2xl md:text-4xl text-foreground-950 mb-3">
+          <p className="font-pacifico text-accent-600 text-3xl md:text-4xl">
+            Facilities
+          </p>
+
+          <div className="flex items-center justify-center gap-3 md:gap-5 mb-3">
+            <img
+              src={ha2}
+              alt=""
+              className="w-12 md:w-16 h-auto object-contain"
+            />
+            <h2 className="font-heading font-bold text-2xl md:text-4xl text-foreground-950">
               設備・備品
             </h2>
-            <p className="text-sm text-foreground-500 font-body mb-6">
-              BBQから生活家電まで。<br />手ぶらでも快適に過ごせる設備を揃えております。
-            </p>
+            <img
+              src={ha22}
+              alt=""
+              className="w-12 md:w-16 h-auto object-contain"
+            />
+          </div>
           </div>
         </ScrollReveal>
 
-        {/* --- BBQ 特大ハイライト表示 --- */}
+       
         <ScrollReveal delay={150} className="mb-12 md:mb-16">
           <div className="relative bg-white rounded-2xl overflow-hidden border border-background-200 shadow-sm flex flex-col md:flex-row">
             
-            {/* 写真エリア */}
+       
             <div className="relative w-full md:w-1/2 h-[320px] md:h-[420px] bg-background-200">
-              {/* メイン画像 (bbq.jpg) */}
+            
               <img
                 src={bbq}
                 alt="BBQエリア"
@@ -100,7 +114,7 @@ export default function FacilitiesSection() {
             </div>
 
             {/* テキストエリア */}
-            <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+            <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center ">
               <span className="inline-block bg-accent-500/20 text-accent-800 text-xs font-bold px-3 py-1 rounded-full w-fit mb-4 whitespace-nowrap">
                 人気設備
               </span>
@@ -118,9 +132,10 @@ export default function FacilitiesSection() {
 
         {/* --- アメニティ アイコンカード（6項目） --- */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          
           {amenities.map((item, idx) => (
             <ScrollReveal key={item.id} delay={200 + idx * 100}>
-              <div className="bg-white p-6 rounded-xl border border-background-200/70 shadow-sm hover:shadow-md transition-shadow h-full flex flex-col">
+              <div className="bg-white p-6 rounded-xl border-2 border-dashed border-orange-400 shadow-sm hover:shadow-md transition-shadow h-full flex flex-col">
                 <div className="w-12 h-12 bg-primary-50 rounded-full flex items-center justify-center mb-4 flex-shrink-0">
                   <i className={`${item.icon} text-primary-500 text-2xl`}></i>
                 </div>
@@ -157,7 +172,7 @@ export default function FacilitiesSection() {
           {[...galleryImages, ...galleryImages].map((img, idx) => (
             <div 
               key={`${img.id}-${idx}`} 
-              className="w-[220px] md:w-[300px] h-[160px] md:h-[220px] flex-shrink-0 overflow-hidden shadow-sm"
+              className="w-[220px] md:w-[300px] h-[160px] md:h-[250px] flex-shrink-0 overflow-hidden shadow-sm"
             >
               <img 
                 src={img.image}
@@ -167,8 +182,20 @@ export default function FacilitiesSection() {
             </div>
           ))}
         </div>
+        <div className="absolute -bottom-6 md:-bottom-9 left-0 right-0 z-10 pointer-events-none leading-[0]">
+          <svg
+            viewBox="0 0 1440 120"
+            preserveAspectRatio="none"
+            className="w-full h-[80px] md:h-[120px] block"
+            aria-hidden="true"
+          >
+            <path
+              fill="oklch(var(--background-50))"
+              d="M0,64 C360,120 720,0 1080,64 C1260,96 1380,80 1440,64 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
       </div>
-      
     </section>
   );
 }

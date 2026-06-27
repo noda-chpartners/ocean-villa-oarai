@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 :root {
+  --font-pacifico: 'Pacifico', cursive;
   --font-heading: 'RocknRoll One', sans-serif;
   --font-body: 'Noto Sans JP', sans-serif;
   --font-label: 'Noto Sans JP', sans-serif;
 
-  --background-50:  0.995 0.004 58;   /* ページ背景 ← ここが body に使われる */
+  --background-50:  0.995 0.004 58;   
   --background-100: 0.985 0.012 58;
   --background-200: 0.985 0.012 58;
   --background-300: 0.94 0.022 58;
@@ -55,27 +56,29 @@
   --secondary-900: 0.33 0.02 58;
   --secondary-950: 0.25 0.015 58;
 
-  --foreground-50: 0.97 0.002 280;
-  --foreground-100: 0.93 0.003 280;
-  --foreground-200: 0.88 0.004 280;
-  --foreground-300: 0.80 0.005 280;
-  --foreground-400: 0.65 0.007 280;
-  --foreground-500: 0.50 0.008 280;
-  --foreground-600: 0.42 0.009 280;
-  --foreground-700: 0.35 0.01 280;
-  --foreground-800: 0.28 0.011 280;
-  --foreground-900: 0.22 0.012 280;
-  --foreground-950: 0.15 0.01 280;
+  --foreground-50:  0.97 0.015 55;
+  --foreground-100: 0.93 0.025 55;
+  --foreground-200: 0.88 0.035 55;
+  --foreground-300: 0.78 0.045 55;
+  --foreground-400: 0.68 0.048 55;
+  --foreground-500: 0.58 0.045 55;   
+  --foreground-600: 0.52 0.042 55;
+  --foreground-700: 0.46 0.038 55;   
+  --foreground-800: 0.40 0.035 55;
+  --foreground-900: 0.36 0.032 55;
+  --foreground-950: 0.32 0.030 55;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   font-family: var(--font-body);
   background-color: oklch(var(--background-50));
   color: oklch(var(--foreground-950));
+  overflow-x: clip;
 }
 
 .visually-hidden-input {

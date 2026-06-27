@@ -1,4 +1,6 @@
 import ScrollReveal from '@/components/base/ScrollReveal';
+import ha2 from '@/assets/ha2.png';
+import ha22 from '@/assets/2ha.png';
 
 export default function AccessSection() {
   // 長い名前は <br /> で改行できるようにReact Nodeとして定義
@@ -10,14 +12,31 @@ export default function AccessSection() {
   ];
 
   return (
-    <section id="access" className="py-20 md:py-28 px-4 md:px-6 bg-background-100">
+    <section id="access" 
+    className="relative -mt-[60px] md:-mt-[80px] py-20 md:py-28 px-4 md:px-6 bg-background-50">
       <div className="max-w-[1100px] mx-auto">
 
         {/* --- アクセス セクション --- */}
         <ScrollReveal>
-        <h2 className="text-center font-heading font-bold text-2xl md:text-4xl text-foreground-950 mb-3">
-          アクセス
-          </h2>
+        <p className="font-pacifico text-accent-600 text-3xl md:text-4xl text-center">
+            Access
+          </p>
+
+          <div className="flex items-center justify-center gap-3 md:gap-5 mb-3">
+            <img
+              src={ha2}
+              alt=""
+              className="w-12 md:w-16 h-auto object-contain"
+            />
+            <h2 className="font-heading font-bold text-2xl md:text-4xl text-foreground-950">
+              アクセス
+            </h2>
+            <img
+              src={ha22}
+              alt=""
+              className="w-12 md:w-16 h-auto object-contain"
+            />
+          </div>
         </ScrollReveal>
         <p className="mt-4 text-foreground-500 text-lg max-w-md mx-auto text-center mb-10">
           〒311-1301 <br />茨城県東茨城郡大洗町磯浜町6902-1
@@ -75,13 +94,13 @@ export default function AccessSection() {
 
         {/* --- 周辺観光 セクション --- */}
         <ScrollReveal delay={400}>
-          <h2 className="font-heading font-bold text-xl md:text-2xl text-foreground-950 text-center mb-10">
+          <h2 className="font-heading font-bold text-xl md:text-2xl text-foreground-950 text-center mb-10 md:mb-30">
             周辺観光
           </h2>
         </ScrollReveal>
 
         {/* 周辺観光カード（スマホ2列 / PC4列） */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mb-20">
           {touristSpots.map((spot, index) => (
             <ScrollReveal
               key={index}

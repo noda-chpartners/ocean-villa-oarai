@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
 const navLinks = [
-  { label: 'コンセプト', href: '#concept' },
-  { label: 'お部屋', href: '#rooms' },
-  { label: '設備', href: '#facilities' },
-  { label: 'アクセス', href: '#access' },
+  { label: 'About ', href: '#concept' },
+  { label: 'Rooms', href: '#rooms' },
+  { label: 'Facilities', href: '#facilities' },
+  { label: 'Access', href: '#access' },
 ];
 
 export default function Navbar() {
@@ -31,7 +31,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-background-50 border-b border-background-200/70'
+          ? 'bg-accent-600 border-b border-accent-600/50 shadow-sm'
           : 'bg-transparent'
       }`}
     >
@@ -40,7 +40,7 @@ export default function Navbar() {
           <a
             href="#"
             className={`font-heading font-bold text-xl tracking-wide whitespace-nowrap transition-colors duration-300 ${
-              scrolled ? 'text-foreground-950' : 'text-white'
+              scrolled ? 'text-foreground-50' : 'text-white'
             }`}
           >
             Ocean villa 大洗
@@ -57,7 +57,7 @@ export default function Navbar() {
                 }}
                 className={`text-sm font-medium whitespace-nowrap transition-colors duration-200 cursor-pointer ${
                   scrolled
-                    ? 'text-foreground-700 hover:text-foreground-950'
+                    ? 'text-foreground-50 hover:text-primary-500'
                     : 'text-white/80 hover:text-white'
                 }`}
               >
@@ -72,8 +72,8 @@ export default function Navbar() {
               }}
               className={`px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap transition-all duration-200 cursor-pointer ${
                 scrolled
-                  ? 'bg-accent-500 text-foreground-950 hover:bg-accent-600'
-                  : 'bg-accent-500 text-foreground-950 hover:bg-accent-400'
+                  ? 'bg-primary-600 text-white hover:bg-primary-700 shadow-sm' // ◀ スクロール時: 背景primary-600、文字白
+                  : 'bg-accent-600 text-white hover:bg-accent-500' // ◀ 初期状態: 背景accent-600、文字白
               }`}
             >
               ご予約
@@ -82,7 +82,7 @@ export default function Navbar() {
 
           <button
             className={`md:hidden w-10 h-10 flex items-center justify-center cursor-pointer ${
-              scrolled ? 'text-foreground-950' : 'text-white'
+              scrolled ? 'text-foreground-50' : 'text-white'
             }`}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="メニューを開く"
@@ -93,7 +93,7 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-background-50 border-t border-background-200/70">
+        <div className="md:hidden bg-accent-600 border-t border-accent-600/50 shadow-md">
           <div className="px-4 py-4 flex flex-col gap-3">
             {navLinks.map((link) => (
               <a
@@ -103,7 +103,7 @@ export default function Navbar() {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className="text-foreground-700 hover:text-foreground-950 text-sm font-medium py-2 cursor-pointer"
+                className="text-foreground-50 hover:text-primary-600 text-sm font-bold py-2 cursor-pointer"
               >
                 {link.label}
               </a>
@@ -114,7 +114,7 @@ export default function Navbar() {
                 e.preventDefault();
                 handleNavClick('#reservation');
               }}
-              className="bg-accent-500 text-foreground-950 text-sm font-bold py-2.5 px-5 rounded-full text-center whitespace-nowrap cursor-pointer"
+              className="bg-primary-600 hover:bg-primary-700 text-white text-sm font-bold py-2.5 px-5 rounded-full text-center whitespace-nowrap cursor-pointer shadow-sm mt-2" // ◀ スマホメニュー内のボタンも同様に変更
             >
               ご予約はこちら
             </a>

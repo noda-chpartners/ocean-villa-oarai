@@ -7,13 +7,14 @@ import floorplan from '@/assets/pic.jpg';
 import { useState } from 'react';
 import ha2 from '@/assets/ha2.png';
 import ha22 from '@/assets/2ha.png';
+import { createPortal } from 'react-dom';
 
 // 間取り図以外の部屋写真を定義
 const rooms = [
   {
     id: 'living',
     title: 'Living & Dining',
-    desc: 'リビングとダイニングが一体となった空間。ご家族やご友人と団らんの時間をお過ごしください',
+    desc: 'リビングとダイニングが一体となった空間。ご家族やご友人と団らんの時間をお過ごしください。',
     image: living,
     colSpan: 'md:col-span-3', // 上段でいっぱいに広げてメインを強調
     heightClass: 'h-[300px] md:h-[480px]',
@@ -140,48 +141,33 @@ export default function RoomsSection() {
       </div>
 
       {/* --- モーダル (ポップアップ) の実装 --- */}
-      {isModalOpen && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm backdrop-animate"
+      {isModalOpen &&
+  createPortal(
+    <div
+      className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/80 backdrop-blur-sm p-4 pt-20 md:pt-24"
+      onClick={() => setIsModalOpen(false)}
+    >
+      <div
+        className="relative w-full max-w-4xl bg-white rounded-lg p-2 shadow-2xl my-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* 閉じるボタンをモーダル内右上に */}
+        <button
           onClick={() => setIsModalOpen(false)}
+          className="absolute top-2 right-2 md:-top-3 md:-right-3 w-10 h-10 flex items-center justify-center rounded-full bg-foreground-950 text-white hover:bg-foreground-800 transition-colors z-10"
+          aria-label="閉じる"
         >
-          <style>{`
-            .backdrop-animate {
-              animation: fadeIn 0.2s ease-out forwards;
-            }
-            .modal-animate {
-              animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            }
-            @keyframes fadeIn {
-              from { opacity: 0; }
-              to { opacity: 1; }
-            }
-            @keyframes popIn {
-              from { opacity: 0; transform: scale(0.95) translateY(10px); }
-              to { opacity: 1; transform: scale(1) translateY(0); }
-            }
-          `}</style>
-
-          <div
-            className="relative w-full max-w-4xl bg-white rounded-lg p-2 shadow-2xl modal-animate"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute -top-12 right-0 md:-right-12 md:top-0 w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 text-white transition-colors"
-              aria-label="閉じる"
-            >
-              <i className="ri-close-line text-2xl"></i>
-            </button>
-
-            <img
-              src={floorplan}
-              alt="間取り図"
-              className="w-full h-auto max-h-[80vh] object-contain rounded"
-            />
-          </div>
-        </div>
-      )}
+          <i className="ri-close-line text-2xl"></i>
+        </button>
+        <img
+          src={floorplan}
+          alt="間取り図"
+          className="w-full h-auto max-h-[calc(100vh-7rem)] object-contain rounded"
+        />
+      </div>
+    </div>,
+    document.body
+  )}
     </section>
   );
 }
